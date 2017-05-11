@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using WebApi2Book.Web.Api.AutoMappingConfiguration;
+using WebApi2Book.Web.Api.Models;
+
+namespace WebApi2Book.Web.Api.MaintenanceProcessing
+{
+  public interface IAddTaskMaintenanceProcessor
+  {
+    Task AddTask(NewTask newTask);
+
+    Task GetTask(long taskId);
+  }
+}

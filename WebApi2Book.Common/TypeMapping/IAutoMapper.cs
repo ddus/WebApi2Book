@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch4_WebApi2Book.Common
+namespace WebApi2Book.Common.TypeMapping
 {
-    public class Class1
-    {
-    }
+  public interface IAutoMapper 
+  {
+    T Map<T>(object objectToMap);
+  }
 }

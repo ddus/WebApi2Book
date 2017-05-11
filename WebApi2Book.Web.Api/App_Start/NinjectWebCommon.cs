@@ -1,66 +1,63 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Ch3_WebApi2Book.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Ch3_WebApi2Book.App_Start.NinjectWebCommon), "Stop")]
+using System;
+using System.Web;
+using System.Web.Http;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
+using WebActivatorEx;
 
-namespace Ch3_WebApi2Book.App_Start
+using WebApi2Book.Web.Api;
+using WebApi2Book.Web.Common;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: ApplicationShutdownMethod(typeof(NinjectWebCommon), "Stop")]
+
+namespace WebApi2Book.Web.Api
 {
-    using System;
-    using System.Web;
+  public static class NinjectWebCommon
+  {
+    private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
-    public static class NinjectWebCommon 
+    public static void Start()
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
-
-        /// <summary>
-        /// Starts the application
-        /// </summary>
-        public static void Start() 
-        {
-            DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
-            DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
-        }
-        
-        /// <summary>
-        /// Stops the application.
-        /// </summary>
-        public static void Stop()
-        {
-            bootstrapper.ShutDown();
-        }
-        
-        /// <summary>
-        /// Creates the kernel that will manage your application.
-        /// </summary>
-        /// <returns>The created kernel.</returns>
-        private static IKernel CreateKernel()
-        {
-            var kernel = new StandardKernel();
-            try
-            {
-                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
-                RegisterServices(kernel);
-                return kernel;
-            }
-            catch
-            {
-                kernel.Dispose();
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Load your modules or register your services here!
-        /// </summary>
-        /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
-        {
-        }        
+      DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+      DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+      IKernel container = null;
+      Bootstrapper.Initialize(() =>
+      {
+        container = CreateKernel();
+        return container;
+      });
+      var resolver = new NinjectDependencyResolver(container);
+      GlobalConfiguration.Configuration.DependencyResolver = resolver;
     }
+
+    public static void Stop()
+    {
+      Bootstrapper.ShutDown();
+    }
+
+    private static IKernel CreateKernel()
+    {
+      var kernel = new StandardKernel();
+      try
+      {
+        kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+        kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+        RegisterServices(kernel);
+        return kernel;
+      }
+      catch
+      {
+        kernel.Dispose();
+        throw;
+      }
+    }
+
+    private static void RegisterServices(IKernel kernel)
+    {
+      var containerConfigurator = new NinjectConfigurator();
+      containerConfigurator.Configure(kernel);
+    }
+  }
 }

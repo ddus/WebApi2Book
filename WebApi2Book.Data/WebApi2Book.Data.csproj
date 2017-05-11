@@ -7,8 +7,8 @@
     <ProjectGuid>{5D59E814-C0CC-43F7-928E-38D3770E6219}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ch4_WebApi2Book.Data</RootNamespace>
-    <AssemblyName>Ch4_WebApi2Book.Data</AssemblyName>
+    <RootNamespace>WebApi2Book.Data</RootNamespace>
+    <AssemblyName>WebApi2Book.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,12 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Link.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="Status_.cs" />
+    <Compile Include="Entities\IVersionedEntity.cs" />
+    <Compile Include="Entities\Status.cs" />
+    <Compile Include="Entities\Test.cs" />
+    <Compile Include="Exceptions\ChildObjectNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Exceptions\RootObjectNotFoundException.cs" />
+    <Compile Include="QueryProcessors\IAddTaskQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ITestQueryProcessor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

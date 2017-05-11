@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Ch4_WebApi2Book.Web.Common.Tests
+namespace WebApi2Book.Web.Common.Tests
 {
   [TestClass]
   public class UnitTest1

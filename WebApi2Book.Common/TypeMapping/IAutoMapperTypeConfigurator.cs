@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch4_WebApi2Book.Data
+namespace WebApi2Book.Common.TypeMapping
 {
-    public class Status_
-    {
-    }
+  public interface IAutoMapperTypeConfigurator
+  {
+    void Configure();
+  }
 }

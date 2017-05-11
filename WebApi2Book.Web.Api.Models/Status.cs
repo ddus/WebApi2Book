@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch3_WebApi2Book.Web.Api.Models
+namespace WebApi2Book.Web.Api.Models
 {
   public class Status
   {
-    public int StatusId { get; set; }
+    public long StatusId { get; set; }
     public string Name { get; set; }
     public int Ordinal { get; set; }
   }

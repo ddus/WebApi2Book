@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Ch4_WebApi2Book.Data.SqlServer.IntegrationTests")]
+[assembly: AssemblyTitle("WebApi2Book.Data.SqlServer.IntegrationTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Ch4_WebApi2Book.Data.SqlServer.IntegrationTests")]
+[assembly: AssemblyProduct("WebApi2Book.Data.SqlServer.IntegrationTests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

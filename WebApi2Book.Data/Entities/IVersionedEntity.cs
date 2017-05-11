@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch4_WebApi2Book.Data.SqlServer
+namespace WebApi2Book.Data.Entities
 {
-    public class Class1
-    {
-    }
+  public interface IVersionedEntity
+  {
+    byte[] Version { get; set; }
+  }
 }
