@@ -24,10 +24,14 @@ namespace WebApi2Book.Data.SqlServer.QueryProcessors
     public void AddTask(WABE.Task task)
     {
       task.CreatedDate = _dateTime.UtcNow;
-      //task.Status = _session.QueryOver<WABE.Status>().Where(
-      //  x => x.Name == "Not Started").SingleOrDefault();
-      task.CreatedBy = _session.QueryOver<WABE.User>().Where(
-        x => x.Username == _userSession.Username).SingleOrDefault();
+      task.Status = _session.QueryOver<WABE.Status>().Where(
+        x => x.Name == "Not Started").SingleOrDefault();
+
+      //task.CreatedBy = _session.QueryOver<WABE.User>().Where(
+      //  x => x.Username == _userSession.Username).SingleOrDefault();
+      // TODO: Just a hack
+      task.CreatedBy = _session.Get<WABE.User>(1L);
+
       if (task.Users != null && task.Users.Any())
       {
         for (var i = 0; i < task.Users.Count; i++)
@@ -48,6 +52,10 @@ namespace WebApi2Book.Data.SqlServer.QueryProcessors
     {
       var task = _session.QueryOver<WABE.Task>().Where(
         x => x.TaskId == taskId).SingleOrDefault();
+      if ( task == null)
+      {
+        throw new ChildObjectNotFoundException($"Task {taskId} not found");
+      }
       return task;
     }
 

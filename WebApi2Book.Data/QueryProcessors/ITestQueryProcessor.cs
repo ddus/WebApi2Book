@@ -10,7 +10,9 @@ namespace WebApi2Book.Data.QueryProcessors
 {
   public interface ITestQueryProcessor
   {
+/*
     void AddTest(Test test);
     Test GetTest(long id);
+*/
   }
 }

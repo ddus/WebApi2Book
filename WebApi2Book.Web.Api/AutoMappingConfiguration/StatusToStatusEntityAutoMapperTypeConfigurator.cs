@@ -19,11 +19,11 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
       Mapper.CreateMap<Models.Status, Data.Entities.Status>()
           .ForMember(opt => opt.Version, x => x.Ignore());
           */
-      Mapper.Initialize(cfg =>
-      {
-        cfg.CreateMap<Models.Status, Data.Entities.Status>()
+//      Mapper.Initialize(cfg => {cfg
+        Mapper
+        .CreateMap<Models.Status, Data.Entities.Status>()
           .ForMember(dest => dest.Version, opt => opt.Ignore());
-      });
+//      });
     }
   }
 }

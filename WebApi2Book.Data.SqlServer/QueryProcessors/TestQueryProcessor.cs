@@ -18,6 +18,7 @@ namespace WebApi2Book.Data.SqlServer.QueryProcessors
     ISession _session;
     IUserSession _userSession;
     IDateTime _dateTime;
+/*
     public void AddTest(Test test)
     {
       throw new NotImplementedException();
@@ -27,7 +28,7 @@ namespace WebApi2Book.Data.SqlServer.QueryProcessors
     {
       throw new NotImplementedException();
     }
-
+*/
     public TestQueryProcessor(ISession session, IUserSession userSession, IDateTime dateTime)
     {
       _session = session;

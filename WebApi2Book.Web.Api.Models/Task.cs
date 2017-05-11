@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApi2Book.Web.Api.Models
 {
-  public class Task
+  public class Task : ILinkContaining
   {
     private List<Link> _links;
 
@@ -16,9 +16,10 @@ namespace WebApi2Book.Web.Api.Models
     public DateTime? DueDate { get; set; }
     public DateTime? CreatedDate { get; set; }
     public DateTime? CompletedDate { get; set; }
-    public Status Status { get; set; }
+    public Models.Status Status { get; set; }
     public List<User> Assignees { get; set; }
 
+    #region ILinkContaining
     public List<Link> Links
     {
       get { return _links ?? (_links = new List<Link>()); }
@@ -29,6 +30,7 @@ namespace WebApi2Book.Web.Api.Models
     {
       Links.Add(link);
     }
+    #endregion ILinkContaining
 
   }
 }

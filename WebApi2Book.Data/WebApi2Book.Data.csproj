@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Entities\IVersionedEntity.cs" />
     <Compile Include="Entities\Status.cs" />
-    <Compile Include="Entities\Test.cs" />
     <Compile Include="Exceptions\ChildObjectNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Task.cs" />

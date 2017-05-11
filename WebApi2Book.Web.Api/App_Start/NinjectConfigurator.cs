@@ -22,6 +22,7 @@ using WebApi2Book.Common.TypeMapping;
 using WebApi2Book.Data.QueryProcessors;
 using WebApi2Book.Data.SqlServer.QueryProcessors;
 using WebApi2Book.Web.Common;
+using WebApi2Book.Web.Common.Security;
 
 using WebApi2Book.Web.Api.AutoMappingConfiguration;
 using WebApi2Book.Web.Api.MaintenanceProcessing;
@@ -96,13 +97,6 @@ namespace WebApi2Book.Web.Api
         .InSingletonScope();
       container.Bind<IAutoMapperTypeConfigurator>()
         .To<UserToUserEntityAutoMapperTypeConfigurator>()
-        .InSingletonScope();
-
-      container.Bind<IAutoMapperTypeConfigurator>()
-        .To<TestToTestEntityAutoMapperTypeConfigurator>()
-        .InSingletonScope();
-      container.Bind<IAutoMapperTypeConfigurator>()
-        .To<TestEntityToTestAutoMapperTypeConfigurator>()
         .InSingletonScope();
 
       container.Bind<IAutoMapperTypeConfigurator>()

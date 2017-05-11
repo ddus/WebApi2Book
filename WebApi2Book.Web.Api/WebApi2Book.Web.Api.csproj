@@ -123,15 +123,12 @@
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperConfigurator.cs" />
     <Compile Include="App_Start\NinjectConfigurator.cs" />
-    <Compile Include="App_Start\NinjectWebCommon_old.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AutoMappingConfiguration\TestToTestEntityAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\NewTaskToTaskEntityAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\StatusEntityToStatusAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\StatusToStatusEntityAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\TaskAssigneesResolver.cs" />
-    <Compile Include="AutoMappingConfiguration\TestEntityToTestAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\TaskEntityToTaskAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\UserEntityToUserAutoMapperTypeConfigurator.cs" />
     <Compile Include="AutoMappingConfiguration\UserToUserEntityAutoMapperTypeConfigurator.cs" />
@@ -143,6 +140,8 @@
     </Compile>
     <Compile Include="MaintenanceProcessing\AddTaskMaintenanceProcessor.cs" />
     <Compile Include="MaintenanceProcessing\IAddTaskMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\LocationLinkCalculator.cs" />
+    <Compile Include="MaintenanceProcessing\TaskCreatedActionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

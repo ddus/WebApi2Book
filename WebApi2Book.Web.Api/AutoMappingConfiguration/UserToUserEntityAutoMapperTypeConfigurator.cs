@@ -16,11 +16,11 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
   {
     public void Configure()
     {
-      Mapper.Initialize(cfg =>
-      {
-        cfg.CreateMap<User, Data.Entities.User>()
+      //Mapper.Initialize(cfg => {cfg
+        Mapper
+        .CreateMap<User, Data.Entities.User>()
           .ForMember(opt => opt.Version, x => x.Ignore());
-      });
+      //});
     }
   }
 }

@@ -17,9 +17,10 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
     public void Configure()
     {
       //Mapper.CreateMap<WebApi2Book.Data.Entities.Status, Models.Status>();
-      Mapper.Initialize(cfg => {
-        cfg.CreateMap<Data.Entities.Status, Models.Status>();
-      });
+//      Mapper.Initialize(cfg => {cfg
+        Mapper
+        .CreateMap<Data.Entities.Status, Models.Status>();
+//      });
     }
   }
 }

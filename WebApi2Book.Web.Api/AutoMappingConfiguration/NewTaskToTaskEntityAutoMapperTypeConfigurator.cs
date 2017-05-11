@@ -14,9 +14,9 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
   {
     public void Configure()
     {
-      Mapper.Initialize(cfg =>
-      {
-        cfg.CreateMap<NewTask, Data.Entities.Task>()
+      //Mapper.Initialize(cfg => { cfg
+        Mapper
+          .CreateMap<NewTask, Data.Entities.Task>()
           .ForMember(opt => opt.Version, x => x.Ignore())
           .ForMember(opt => opt.CreatedBy, x => x.Ignore())
           .ForMember(opt => opt.TaskId, x => x.Ignore())
@@ -24,7 +24,7 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
           .ForMember(opt => opt.CompletedDate, x => x.Ignore())
           .ForMember(opt => opt.Status, x => x.Ignore())
           .ForMember(opt => opt.Users, x => x.Ignore());
-      });
+  //    });
     }
   }
 }

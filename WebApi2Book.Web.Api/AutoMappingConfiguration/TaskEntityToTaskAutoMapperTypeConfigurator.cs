@@ -14,13 +14,13 @@ namespace WebApi2Book.Web.Api.AutoMappingConfiguration
   {
     public void Configure()
     {
-      Mapper.Initialize(cfg =>
-      {
-        cfg.CreateMap<Data.Entities.Task, Models.Task>()
+      //Mapper.Initialize(cfg =>  {cfg
+        Mapper
+        .CreateMap<Data.Entities.Task, Models.Task>()
           .ForMember(opt => opt.Links, x => x.Ignore())
           .ForMember(opt => opt.Assignees,
               x => x.ResolveUsing<TaskAssigneesResolver>());
-      });
+      //});
     }
   }
 }

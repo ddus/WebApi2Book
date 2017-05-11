@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\TestMap.cs" />
     <Compile Include="QueryProcessors\AddTaskQueryProcessor.cs" />
     <Compile Include="Mapping\StatusMap.cs" />
     <Compile Include="Mapping\TaskMap.cs" />

@@ -13,9 +13,9 @@ using WebApi2Book.Web.Common;
 
 namespace WebApi2Book.Web.Api.Controllers.V1
 {
-  //[ApiVersion1RoutePrefix("tasks")]
+  [ApiVersion1RoutePrefix("tasks")]
   [UnitOfWorkActionFilter]
-  [RoutePrefix("api/{apiVersion:apiVersionConstraint(v1)}/tasks")]
+  //[RoutePrefix("api/{apiVersion:apiVersionConstraint(v1)}/tasks")]
   public class TasksController : ApiController
   {
     private readonly IAddTaskMaintenanceProcessor _addTaskMaintenanceProcessing;
@@ -35,10 +35,10 @@ namespace WebApi2Book.Web.Api.Controllers.V1
 
     [Route("", Name ="AddTaskRoute")]
     [HttpPost]
-    public Task AddTask(HttpRequestMessage requestMessage, NewTask newTask)
+    public IHttpActionResult AddTask(HttpRequestMessage requestMessage, NewTask newTask)
     {
       var task = _addTaskMaintenanceProcessing.AddTask(newTask);
-      return task;
+      return new TaskCreatedActionResult(requestMessage, task);
 
       /*
       return new Task
