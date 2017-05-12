@@ -12,15 +12,18 @@ using User = WebApi2Book.Web.Api.Models.User;
 
 namespace WebApi2Book.Web.Api.AutoMappingConfiguration
 {
-  public class UserToUserEntityAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator
+  public class UserToUserEntityAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator, IAutoMapperTypeConfigurator2
   {
     public void Configure()
     {
-      //Mapper.Initialize(cfg => {cfg
-        Mapper
-        .CreateMap<User, Data.Entities.User>()
-          .ForMember(opt => opt.Version, x => x.Ignore());
-      //});
+      Mapper.CreateMap<User, Data.Entities.User>()
+        .ForMember(opt => opt.Version, x => x.Ignore());
+    }
+
+    public void Configure(IConfiguration cfg)
+    {
+      cfg.CreateMap<User, Data.Entities.User>()
+        .ForMember(opt => opt.Version, x => x.Ignore());
     }
   }
 }

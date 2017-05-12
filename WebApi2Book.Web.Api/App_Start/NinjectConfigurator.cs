@@ -84,25 +84,25 @@ namespace WebApi2Book.Web.Api
         .To<AutoMapperAdapter>()
         .InSingletonScope();
 
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<StatusEntityToStatusAutoMapperTypeConfigurator>()
         .InSingletonScope();
 
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<StatusToStatusEntityAutoMapperTypeConfigurator>()
         .InSingletonScope();
 
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<UserEntityToUserAutoMapperTypeConfigurator>()
         .InSingletonScope();
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<UserToUserEntityAutoMapperTypeConfigurator>()
         .InSingletonScope();
 
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<NewTaskToTaskEntityAutoMapperTypeConfigurator>()
         .InSingletonScope();
-      container.Bind<IAutoMapperTypeConfigurator>()
+      container.Bind<IAutoMapperTypeConfigurator2>()
         .To<TaskEntityToTaskAutoMapperTypeConfigurator>()
         .InSingletonScope();
     }

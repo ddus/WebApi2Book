@@ -11,19 +11,18 @@ using WebApi2Book.Web.Common;
 
 namespace WebApi2Book.Web.Api.AutoMappingConfiguration
 {
-  public class StatusToStatusEntityAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator
+  public class StatusToStatusEntityAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator, IAutoMapperTypeConfigurator2
   {
     public void Configure()
     {
-      /*
       Mapper.CreateMap<Models.Status, Data.Entities.Status>()
-          .ForMember(opt => opt.Version, x => x.Ignore());
-          */
-//      Mapper.Initialize(cfg => {cfg
-        Mapper
-        .CreateMap<Models.Status, Data.Entities.Status>()
-          .ForMember(dest => dest.Version, opt => opt.Ignore());
-//      });
+        .ForMember(dest => dest.Version, opt => opt.Ignore());
+    }
+
+    public void Configure(IConfiguration cfg)
+    {
+      cfg.CreateMap<Models.Status, Data.Entities.Status>()
+        .ForMember(dest => dest.Version, opt => opt.Ignore());
     }
   }
 }

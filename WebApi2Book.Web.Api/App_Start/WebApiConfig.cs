@@ -25,6 +25,7 @@ namespace WebApi2Book.Web.Api
       constraintsResolver.ConstraintMap.Add("apiVersionConstraint",
         typeof(ApiVersionConstraint));
       config.MapHttpAttributeRoutes(constraintsResolver);
+
       config.Services.Replace(typeof(IHttpControllerSelector),
         new NamespaceHttpControllerSelector(config));
 

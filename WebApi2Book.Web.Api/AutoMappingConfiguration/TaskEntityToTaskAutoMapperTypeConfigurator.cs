@@ -10,17 +10,24 @@ using WebApi2Book.Web.Api.Models;
 
 namespace WebApi2Book.Web.Api.AutoMappingConfiguration
 {
-  public class TaskEntityToTaskAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator
+  public class TaskEntityToTaskAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator, IAutoMapperTypeConfigurator2
   {
     public void Configure()
     {
-      //Mapper.Initialize(cfg =>  {cfg
         Mapper
         .CreateMap<Data.Entities.Task, Models.Task>()
           .ForMember(opt => opt.Links, x => x.Ignore())
           .ForMember(opt => opt.Assignees,
               x => x.ResolveUsing<TaskAssigneesResolver>());
-      //});
+    }
+
+    public void Configure(IConfiguration cfg)
+    {
+      cfg
+      .CreateMap<Data.Entities.Task, Models.Task>()
+        .ForMember(opt => opt.Links, x => x.Ignore())
+        .ForMember(opt => opt.Assignees,
+            x => x.ResolveUsing<TaskAssigneesResolver>());
     }
   }
 }

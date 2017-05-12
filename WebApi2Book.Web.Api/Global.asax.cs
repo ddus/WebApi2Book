@@ -18,7 +18,8 @@ namespace WebApi2Book.Web.Api
       GlobalConfiguration.Configure(WebApiConfig.Register);
 
       new AutoMapperConfigurator().Configure(
-        WebContainerManager.GetAll<IAutoMapperTypeConfigurator>());
+        null, //WebContainerManager.GetAll<IAutoMapperTypeConfigurator>(),
+        WebContainerManager.GetAll<IAutoMapperTypeConfigurator2>());
     }
 
     protected void Application_Error()

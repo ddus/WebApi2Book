@@ -12,15 +12,16 @@ using WebApi2Book.Web.Common;
 
 namespace WebApi2Book.Web.Api.AutoMappingConfiguration
 {
-  public class StatusEntityToStatusAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator
+  public class StatusEntityToStatusAutoMapperTypeConfigurator : IAutoMapperTypeConfigurator, IAutoMapperTypeConfigurator2
   {
     public void Configure()
     {
-      //Mapper.CreateMap<WebApi2Book.Data.Entities.Status, Models.Status>();
-//      Mapper.Initialize(cfg => {cfg
-        Mapper
-        .CreateMap<Data.Entities.Status, Models.Status>();
-//      });
+      Mapper.CreateMap<Data.Entities.Status, Models.Status>();
+    }
+
+    public void Configure(IConfiguration cfg)
+    {
+      cfg.CreateMap<Data.Entities.Status, Models.Status>();
     }
   }
 }

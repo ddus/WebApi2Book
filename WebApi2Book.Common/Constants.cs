@@ -52,9 +52,9 @@ namespace WebApi2Book.Common
 
     public static class RoleNames
     {
-      public static string Manager = "Manager";
-      public static string SeniorWorker = "SeniorWorker";
-      public static string JuniorWorker = "JuniorWorker";
+      public const string Manager = "Manager";
+      public const string SeniorWorker = "SeniorWorker";
+      public const string JuniorWorker = "JuniorWorker";
     }
 
     public const string DefaultLegacyNamespace = "http://tempui.org";
